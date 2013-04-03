@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Champ Bars</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_map">MapActivity</string>
+    <string name="button_bars">Bar Search</string>
+    <string name="button_view_friends_bars">View Friend\'s Bars</string>
+    <string name="button_check_in">Check In</string>
+    <string name="title_activity_display_bars">Bars</string>
+    <string name="title_activity_bar_search">Bar Search</string>
+    <string name="text_enter_search_radius">Enter Search Radius:</string>
+
+</resources>

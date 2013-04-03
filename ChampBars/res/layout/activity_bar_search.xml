@@ -1,0 +1,33 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    tools:context=".BarSearchActivity">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="152dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/text_enter_search_radius"
+        android:textSize="40sp" />
+
+    <EditText
+        android:id="@+id/radius"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="center_vertical|center_horizontal"
+        android:inputType="numberDecimal" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/button_bar_search_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="radiusBarSearch"
+        android:text="Submit" />
+    
+</LinearLayout>

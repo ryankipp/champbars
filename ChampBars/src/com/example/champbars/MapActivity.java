@@ -59,6 +59,8 @@ public class MapActivity extends FragmentActivity {
 	private void setUpMap() {
 		mMap.setMyLocationEnabled(true);
 		Location myLocation = null;
+		//This is where things aren't working. From what I read online, we'll have to use a location listener instead
+		//to implement this functionality
 		while (myLocation == null) {
 			myLocation = mMap.getMyLocation();
 		}

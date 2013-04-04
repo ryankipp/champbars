@@ -14,7 +14,12 @@ int attr useViewLifecycle 0x7f01000c
 int attr zOrderOnTop 0x7f01000d
 int dimen activity_horizontal_margin 0x7f060000
 int dimen activity_vertical_margin 0x7f060001
-int drawable ic_launcher 0x7f020000
+int drawable beer2 0x7f020000
+int drawable ic_launcher 0x7f020001
+int drawable kams 0x7f020002
+int drawable legends 0x7f020003
+int drawable murphys 0x7f020004
+int drawable whiteho 0x7f020005
 int id action_settings 0x7f040008
 int id button_bar_search_submit 0x7f040006
 int id hybrid 0x7f040004

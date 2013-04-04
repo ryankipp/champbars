@@ -1,7 +1,16 @@
 
-
 <fragment xmlns:android="http://schemas.android.com/apk/res/android"
- android:id="@+id/map"
- android:layout_width="match_parent"
- android:layout_height="match_parent"
- class="com.google.android.gms.maps.SupportMapFragment"/>
+  xmlns:map="http://schemas.android.com/apk/res-auto"
+  android:id="@+id/map"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  class="com.google.android.gms.maps.SupportMapFragment"
+  map:cameraTargetLat="40.110212"
+  map:cameraTargetLng="-88.233519"
+  map:cameraZoom="14"
+  map:mapType="normal"
+  map:uiRotateGestures="true"
+  map:uiScrollGestures="true"
+  map:uiTiltGestures="true"
+  map:uiZoomControls="false"
+  map:uiZoomGestures="true"/>

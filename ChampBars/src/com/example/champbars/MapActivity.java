@@ -4,7 +4,9 @@ import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import android.content.Intent;
@@ -12,6 +14,7 @@ import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import com.example.champbars.*;
 
 public class MapActivity extends FragmentActivity {
 
@@ -22,10 +25,6 @@ public class MapActivity extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_map);
 		setUpMapIfNeeded();
-		// Get the radius the user passed in from BarSearchActivity
-		Intent intent = getIntent();
-		Float radius = Float.valueOf(intent
-				.getStringExtra(BarSearchActivity.RADIUS));
 
 		GooglePlayServicesUtil
 				.isGooglePlayServicesAvailable(getApplicationContext());
@@ -57,19 +56,10 @@ public class MapActivity extends FragmentActivity {
 	 * be called once and when we are sure that {@link #mMap} is not null.
 	 */
 	private void setUpMap() {
-		mMap.setMyLocationEnabled(true);
-		Location myLocation = null;
-		//This is where things aren't working. From what I read online, we'll have to use a location listener instead
-		//to implement this functionality
-		while (myLocation == null) {
-			myLocation = mMap.getMyLocation();
-		}
-		if (myLocation != null) {
-			LatLng myLocationLatLng = new LatLng(myLocation.getLatitude(),
-					myLocation.getLongitude());
-			mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myLocationLatLng,
-					15));
-		}
+		final LatLng KAMS = new LatLng(40.108103, -88.229688);
+		Marker kams = mMap.addMarker(new MarkerOptions().position(KAMS)
+				.title("Kams").snippet("")
+				.icon(BitmapDescriptorFactory.fromResource(R.drawable.kams)));
 	}
 
 	// TODO add markerOnClickListener for bar clicks

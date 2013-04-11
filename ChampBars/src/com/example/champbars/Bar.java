@@ -9,21 +9,23 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 
 public class Bar {
+	private String name;
 	private String address; // Address in the form
 							// "100 Green Street, Champaign, IL, 61820"
 	private int numMen;
 	private int numWomen;
 	private LatLng geoLocation;
-	public MarkerOptions mark;
+	public MarkerOptions markerOptions;
 	//TODO: Add either a new class of a string array for 'Bar Specials'
 	
-	public Bar(String address, int numMen, int numWomen, LatLng geoLocation,
+	public Bar(String name, String address, int numMen, int numWomen, LatLng geoLocation,
 			MarkerOptions mark) {
+		this.name = name;
 		this.address = address;
 		this.numMen = numMen;
 		this.numWomen = numWomen;
 		this.geoLocation = geoLocation;
-		this.mark = mark;
+		this.markerOptions = mark;
 	}
 	
 	public LatLng getGeoLocation() {

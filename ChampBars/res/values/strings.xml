@@ -11,5 +11,6 @@
     <string name="title_activity_display_bars">Bars</string>
     <string name="title_activity_bar_search">Bar Search</string>
     <string name="text_enter_search_radius">Enter Search Radius:</string>
-
+    <string name="title_activity_main_screen">MainScreen</string>
+	<string name="app_id">330246980431543</string>
 </resources>

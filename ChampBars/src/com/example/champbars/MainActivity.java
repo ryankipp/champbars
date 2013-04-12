@@ -33,6 +33,7 @@ public class MainActivity extends Activity {
 								public void onCompleted(GraphUser user,
 										Response response) {
 									if (user != null) {
+										//Move the user to the 3 button main screen after login is accomplished
 										Intent mainscreen = new Intent(MainActivity.this, MainScreen.class);
 										startActivity(mainscreen);
 									}

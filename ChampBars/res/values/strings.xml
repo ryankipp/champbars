@@ -6,11 +6,23 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_map">MapActivity</string>
     <string name="button_bars">Bar Search</string>
-    <string name="button_view_friends_bars">View Friend\'s Bars</string>
+    <string name="button_view_friends_bars">Friend\'s Bars</string>
     <string name="button_check_in">Check In</string>
     <string name="title_activity_display_bars">Bars</string>
     <string name="title_activity_bar_search">Bar Search</string>
     <string name="text_enter_search_radius">Enter Search Radius:</string>
     <string name="title_activity_main_screen">MainScreen</string>
-	<string name="app_id">330246980431543</string>
+    <string name="button_commit_to_later">Commit</string>
+    <string name="app_id">330246980431543</string>
+    <string name="title_activity_commit">CommitActivity</string>
+    <string name="clys">Cly\'s</string>
+    <string name="firehaus">Firehaus</string>
+    <string name="joes">Joe\'s</string>
+    <string name="kams">Kam\'s</string>
+    <string name="legends">Legend\'s</string>
+    <string name="murphys">Murphy\'s</string>
+    <string name="redLion">Red Lion</string>
+    <string name="whiteHo">White Horse</string>
+    <string name="title_activity_check_in">CheckInActivity</string>
+
 </resources>

@@ -19,6 +19,8 @@ import com.example.champbars.*;
 public class MapActivity extends FragmentActivity {
 
 	private GoogleMap mMap;
+	public static Bar bKams, bWhiteHo, bLegends, bMurphys, bClys, bRedLion,
+			bFirehaus, bJoes;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -56,48 +58,73 @@ public class MapActivity extends FragmentActivity {
 	 * be called once and when we are sure that {@link #mMap} is not null.
 	 */
 	private void setUpMap() {
-		final LatLng KAMS = new LatLng(40.108103, -88.229688);
-		final LatLng WHITEHO = new LatLng(40.109335,-88.23084);
-		final LatLng LEGENDS = new LatLng(40.11062,-88.231148);
-		final LatLng MURPHYS = new LatLng(40.110553,-88.230154);
-		final LatLng CLYS = new LatLng(40.109621,-88.230386);
-		final LatLng REDLION = new LatLng(40.109909,-88.235626);
-		final LatLng FIREHAUS = new LatLng(40.109729,-88.230361);
-		final LatLng JOES = new LatLng(40.109713,-88.231783);
-		
-		Bar bKams = new Bar("Kams", "618 E Daniel St, Champaign, IL 61820", 0, 0, KAMS,
-				new MarkerOptions().position(KAMS)
-				.title("Kams").snippet("")
-				.icon(BitmapDescriptorFactory.fromResource(R.drawable.kams)));
-		Bar bWhiteHo = new Bar("White Horse Inn", "510 E John St Champaign, IL 61820", 0, 0, WHITEHO,
-				new MarkerOptions().position(WHITEHO)
-				.title("White Horse Inn").snippet("")
-				.icon(BitmapDescriptorFactory.fromResource(R.drawable.whiteho)));
-		Bar bLegends = new Bar("Legends", "522 E Green St Champaign, IL 61820", 0, 0, LEGENDS,
-				new MarkerOptions().position(LEGENDS)
-				.title("Legends").snippet("")
-				.icon(BitmapDescriptorFactory.fromResource(R.drawable.legends)));
-		Bar bMurphys = new Bar("Murphy's", "604 E Green St Champaign, IL 61820", 0, 0, MURPHYS,
-				new MarkerOptions().position(MURPHYS)
-				.title("Murphy's").snippet("")
-				.icon(BitmapDescriptorFactory.fromResource(R.drawable.murphys)));
-		Bar bClys = new Bar("Clybourne", "706 S 6th St, Champaign, IL 61820", 0, 0, CLYS,
-				new MarkerOptions().position(CLYS)
-				.title("Clybourne").snippet("")
-				.icon(BitmapDescriptorFactory.fromResource(R.drawable.clys)));
-		Bar bRedLion = new Bar("Red Lion", "211 E Green St Champaign, IL 61820", 0, 0, REDLION,
-				new MarkerOptions().position(REDLION)
-				.title("Red Lion").snippet("")
-				.icon(BitmapDescriptorFactory.fromResource(R.drawable.redlion)));
-		Bar bFirehaus = new Bar("Firehaus", "708 S 6th St Champaign, IL 61820", 0, 0, FIREHAUS,
-				new MarkerOptions().position(FIREHAUS)
-				.title("Firehaus").snippet("")
-				.icon(BitmapDescriptorFactory.fromResource(R.drawable.firehaus)));
-		Bar bJoes = new Bar("Joe's", "706 South 5th Street, Champaign, IL 61820", 0, 0, JOES,
-				new MarkerOptions().position(FIREHAUS)
-				.title("Joe's").snippet("")
-				.icon(BitmapDescriptorFactory.fromResource(R.drawable.joes)));
-		
+		LatLng KAMS = new LatLng(40.108103, -88.229688);
+		LatLng WHITEHO = new LatLng(40.109335, -88.23084);
+		LatLng LEGENDS = new LatLng(40.11062, -88.231148);
+		LatLng MURPHYS = new LatLng(40.110553, -88.230154);
+		LatLng CLYS = new LatLng(40.109621, -88.230386);
+		LatLng REDLION = new LatLng(40.109909, -88.235626);
+		LatLng FIREHAUS = new LatLng(40.109729, -88.230361);
+		LatLng JOES = new LatLng(40.109713, -88.231783);
+
+		bKams = new Bar("Kams", "618 E Daniel St, Champaign, IL 61820", 0, 0,
+				KAMS, new MarkerOptions()
+						.position(KAMS)
+						.title("Kams")
+						.snippet("")
+						.icon(BitmapDescriptorFactory
+								.fromResource(R.drawable.kams)));
+		bWhiteHo = new Bar("White Horse Inn",
+				"510 E John St Champaign, IL 61820", 0, 0, WHITEHO,
+				new MarkerOptions()
+						.position(WHITEHO)
+						.title("White Horse Inn")
+						.snippet("")
+						.icon(BitmapDescriptorFactory
+								.fromResource(R.drawable.whiteho)));
+		bLegends = new Bar("Legends", "522 E Green St Champaign, IL 61820", 0,
+				0, LEGENDS, new MarkerOptions()
+						.position(LEGENDS)
+						.title("Legends")
+						.snippet("")
+						.icon(BitmapDescriptorFactory
+								.fromResource(R.drawable.legends)));
+		bMurphys = new Bar("Murphy's", "604 E Green St Champaign, IL 61820", 0,
+				0, MURPHYS, new MarkerOptions()
+						.position(MURPHYS)
+						.title("Murphy's")
+						.snippet("")
+						.icon(BitmapDescriptorFactory
+								.fromResource(R.drawable.murphys)));
+		bClys = new Bar("Clybourne", "706 S 6th St, Champaign, IL 61820", 0, 0,
+				CLYS, new MarkerOptions()
+						.position(CLYS)
+						.title("Clybourne")
+						.snippet("")
+						.icon(BitmapDescriptorFactory
+								.fromResource(R.drawable.clys)));
+		bRedLion = new Bar("Red Lion", "211 E Green St Champaign, IL 61820", 0,
+				0, REDLION, new MarkerOptions()
+						.position(REDLION)
+						.title("Red Lion")
+						.snippet("")
+						.icon(BitmapDescriptorFactory
+								.fromResource(R.drawable.redlion)));
+		bFirehaus = new Bar("Firehaus", "708 S 6th St Champaign, IL 61820", 0,
+				0, FIREHAUS, new MarkerOptions()
+						.position(FIREHAUS)
+						.title("Firehaus")
+						.snippet("")
+						.icon(BitmapDescriptorFactory
+								.fromResource(R.drawable.firehaus)));
+		bJoes = new Bar("Joe's", "706 South 5th Street, Champaign, IL 61820",
+				0, 0, JOES, new MarkerOptions()
+						.position(FIREHAUS)
+						.title("Joe's")
+						.snippet("")
+						.icon(BitmapDescriptorFactory
+								.fromResource(R.drawable.joes)));
+
 		Marker mKams = mMap.addMarker(bKams.markerOptions);
 		Marker mWhiteHo = mMap.addMarker(bWhiteHo.markerOptions);
 		Marker mLegends = mMap.addMarker(bLegends.markerOptions);

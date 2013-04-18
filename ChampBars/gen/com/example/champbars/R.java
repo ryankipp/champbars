@@ -393,34 +393,38 @@ containing a value of this type.
         public static final int welcome=0x7f04001a;
     }
     public static final class layout {
-        public static final int activity_bar_search=0x7f030000;
-        public static final int activity_check_in=0x7f030001;
-        public static final int activity_commit=0x7f030002;
-        public static final int activity_main=0x7f030003;
-        public static final int activity_main_screen=0x7f030004;
-        public static final int activity_map=0x7f030005;
-        public static final int com_facebook_friendpickerfragment=0x7f030006;
-        public static final int com_facebook_login_activity_layout=0x7f030007;
-        public static final int com_facebook_picker_activity_circle_row=0x7f030008;
-        public static final int com_facebook_picker_checkbox=0x7f030009;
-        public static final int com_facebook_picker_image=0x7f03000a;
-        public static final int com_facebook_picker_list_row=0x7f03000b;
-        public static final int com_facebook_picker_list_section_header=0x7f03000c;
-        public static final int com_facebook_picker_search_box=0x7f03000d;
-        public static final int com_facebook_picker_title_bar=0x7f03000e;
-        public static final int com_facebook_picker_title_bar_stub=0x7f03000f;
-        public static final int com_facebook_placepickerfragment=0x7f030010;
-        public static final int com_facebook_placepickerfragment_list_row=0x7f030011;
-        public static final int com_facebook_usersettingsfragment=0x7f030012;
+        public static final int activity_android_list_client=0x7f030000;
+        public static final int activity_bar_search=0x7f030001;
+        public static final int activity_check_in=0x7f030002;
+        public static final int activity_commit=0x7f030003;
+        public static final int activity_gcmintent_service=0x7f030004;
+        public static final int activity_main=0x7f030005;
+        public static final int activity_main_screen=0x7f030006;
+        public static final int activity_map=0x7f030007;
+        public static final int com_facebook_friendpickerfragment=0x7f030008;
+        public static final int com_facebook_login_activity_layout=0x7f030009;
+        public static final int com_facebook_picker_activity_circle_row=0x7f03000a;
+        public static final int com_facebook_picker_checkbox=0x7f03000b;
+        public static final int com_facebook_picker_image=0x7f03000c;
+        public static final int com_facebook_picker_list_row=0x7f03000d;
+        public static final int com_facebook_picker_list_section_header=0x7f03000e;
+        public static final int com_facebook_picker_search_box=0x7f03000f;
+        public static final int com_facebook_picker_title_bar=0x7f030010;
+        public static final int com_facebook_picker_title_bar_stub=0x7f030011;
+        public static final int com_facebook_placepickerfragment=0x7f030012;
+        public static final int com_facebook_placepickerfragment_list_row=0x7f030013;
+        public static final int com_facebook_usersettingsfragment=0x7f030014;
     }
     public static final class menu {
-        public static final int bar_search=0x7f090000;
-        public static final int check_in=0x7f090001;
-        public static final int commit=0x7f090002;
-        public static final int display_bars=0x7f090003;
-        public static final int main=0x7f090004;
-        public static final int main_screen=0x7f090005;
-        public static final int map=0x7f090006;
+        public static final int android_list_client=0x7f090000;
+        public static final int bar_search=0x7f090001;
+        public static final int check_in=0x7f090002;
+        public static final int commit=0x7f090003;
+        public static final int display_bars=0x7f090004;
+        public static final int gcmintent=0x7f090005;
+        public static final int main=0x7f090006;
+        public static final int main_screen=0x7f090007;
+        public static final int map=0x7f090008;
     }
     public static final class string {
         public static final int action_settings=0x7f05002b;
@@ -526,10 +530,12 @@ containing a value of this type.
         public static final int murphys=0x7f05003d;
         public static final int redLion=0x7f05003e;
         public static final int text_enter_search_radius=0x7f050033;
+        public static final int title_activity_android_list_client=0x7f050042;
         public static final int title_activity_bar_search=0x7f050032;
         public static final int title_activity_check_in=0x7f050040;
         public static final int title_activity_commit=0x7f050037;
         public static final int title_activity_display_bars=0x7f050031;
+        public static final int title_activity_gcmintent_service=0x7f050041;
         public static final int title_activity_main_screen=0x7f050034;
         public static final int title_activity_map=0x7f05002d;
         public static final int whiteHo=0x7f05003f;

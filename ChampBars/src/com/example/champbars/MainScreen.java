@@ -11,7 +11,6 @@ import android.view.Menu;
 import android.view.View;
 
 
-
 public class MainScreen extends Activity {
 	//The bar objects that will be called upon throughout the app
 	
@@ -43,6 +42,11 @@ public class MainScreen extends Activity {
 	/** Called when the user clicks the 'Check In' button*/
 	public void checkIn(View view){
 		Intent intent = new Intent(this, CheckInActivity.class);
+		startActivity(intent);
+	}
+	/** For server testing purposes*/
+	public void serverTest(View view){
+		Intent intent = new Intent(this, AndroidListClient.class);
 		startActivity(intent);
 	}
 

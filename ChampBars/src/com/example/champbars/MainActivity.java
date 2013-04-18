@@ -1,8 +1,10 @@
 package com.example.champbars;
 
 import android.os.Bundle;
+import com.google.android.gcm.GCMRegistrar;
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.widget.TextView;
 import com.facebook.*;
 import com.facebook.model.*;
@@ -42,6 +44,7 @@ public class MainActivity extends Activity {
 				}
 			}
 		});
+		
 	}
 
 	@Override

@@ -24,5 +24,7 @@
     <string name="redLion">Red Lion</string>
     <string name="whiteHo">White Horse</string>
     <string name="title_activity_check_in">CheckInActivity</string>
+    <string name="title_activity_gcmintent_service">GCMIntentService</string>
+    <string name="title_activity_android_list_client">AndroidListClient</string>
 
 </resources>

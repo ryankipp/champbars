@@ -35,5 +35,13 @@
         android:onClick="commit"
         android:text="@string/button_commit_to_later"
         android:textSize="45sp" />
+    
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:onClick="serverTest"
+        android:text="Test Server"
+        android:textSize="45sp" />
 
 </LinearLayout>

@@ -6,5 +6,6 @@
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry kind="lib" path="C:/Users/anon/Desktop/good_group_465/eclipse_workspace/com.uiucfa12.cs465.cu_bars.MainActivity/libs/android-support-v4.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/anon/Desktop/eclipse/workspace/google-play-services_lib/libs/google-play-services.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/Android/android-sdk/extras/google/gcm/gcm-client/dist/gcm.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

@@ -1,0 +1,52 @@
+   <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/scrollView1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            <Button
+             android:id="@+id/cbClys"
+		     android:layout_height="60dp"
+		     android:layout_width="match_parent"
+		     android:text="@string/clys" />
+            <Button
+             android:id="@+id/cbFirehaus"
+		     android:layout_height="60dp"
+		     android:layout_width="match_parent"
+		     android:text="@string/firehaus" />
+            <Button
+             android:id="@+id/cbJoes"
+		     android:layout_height="60dp"
+		     android:layout_width="match_parent"
+		     android:text="@string/joes" />
+            <Button
+             android:id="@+id/cbKams"
+		     android:layout_height="60dp"
+		     android:layout_width="match_parent"
+		     android:text="@string/kams" />
+            <Button
+             android:id="@+id/cbLegends"
+		     android:layout_height="60dp"
+		     android:layout_width="match_parent"
+		     android:text="@string/legends" /> 
+            <Button
+             android:id="@+id/cbMurphys"
+		     android:layout_height="60dp"
+		     android:layout_width="match_parent"
+		     android:text="@string/murphys" />
+            <Button
+             android:id="@+id/cbRedLion"
+		     android:layout_height="60dp"
+		     android:layout_width="match_parent"
+		     android:text="@string/redLion" />
+            <Button
+             android:id="@+id/cbWhiteHo"
+		     android:layout_height="60dp"
+		     android:layout_width="match_parent"
+		     android:text="@string/whiteHo" />         
+            
+        </LinearLayout>
+    </ScrollView>

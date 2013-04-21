@@ -44,10 +44,6 @@ public class MainScreen extends Activity {
 		Intent intent = new Intent(this, CheckInActivity.class);
 		startActivity(intent);
 	}
-	/** For server testing purposes*/
-	public void serverTest(View view){
-		Intent intent = new Intent(this, AndroidListClient.class);
-		startActivity(intent);
-	}
+	
 
 }

@@ -1,79 +1,153 @@
 package com.example.champbars;
 
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
+import android.app.ListActivity;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.app.Activity;
-import android.view.Menu;
+import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 
-public class CommitActivity extends Activity implements OnClickListener {
+/**
+ * Class: AndroidListClient - This is the main activity for this application.
+ * This example shows how we can implement a simple client/server model using
+ * an Android app as the client and a PHP script as the server. This example
+ * should be used in conjunction with the AndroidListServer example.
+ * 
+ * Based on the tutorial from http://www.hassanpur.com/blog/2010/09/android-development-implementing-a-simple-client-server-model/
+ * 
+ */
+public class CommitActivity extends ListActivity {
 
-	private Button bClys, bFirehaus, bJoes, bKams, bLegends, bMurphys,
-			bRedLion, bWhiteHo;
+        // Instance Variables
+        private CommitActivity mainActivity = null;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_commit);
+        /** Called when the activity is first created. */
+        @SuppressWarnings("unchecked")
+        public void onCreate(Bundle savedInstanceState) {
+                super.onCreate(savedInstanceState);
+                
+                // we're going to need this later by the other threads
+                mainActivity = this;
 
-		// cbBar stands for commit-button-bar_name
-		bClys = (Button) findViewById(R.id.cbClys);
-		bFirehaus = (Button) findViewById(R.id.cbFirehaus);
-		bJoes = (Button) findViewById(R.id.cbJoes);
-		bKams = (Button) findViewById(R.id.cbKams);
-		bLegends = (Button) findViewById(R.id.cbLegends);
-		bMurphys = (Button) findViewById(R.id.cbMurphys);
-		bRedLion = (Button) findViewById(R.id.cbRedLion);
-		bWhiteHo = (Button) findViewById(R.id.cbWhiteHo);
+                // let's initialize the list, the real data will be filled in later
+                String[] initialList = {""};
 
-		bClys.setOnClickListener(this);
-		bFirehaus.setOnClickListener(this);
-		bJoes.setOnClickListener(this);
-		bKams.setOnClickListener(this);
-		bLegends.setOnClickListener(this);
-		bMurphys.setOnClickListener(this);
-		bRedLion.setOnClickListener(this);
-		bWhiteHo.setOnClickListener(this);
-	}
+                // now we'll supply the data structure needed by this ListActivity
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.activity_android_list_client, initialList);
+                this.setListAdapter(adapter);
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.commit, menu);
-		return true;
-	}
+                /*
+                 * Let's set up an item click listener to retrieve the animal sound and
+                 * display it to the user as a Toast.
+                 */
+                ListView lv = this.getListView();
+                lv.setOnItemClickListener(new OnItemClickListener() {
 
-	@Override
-	public void onClick(View v) {
-		if (v == bClys) {
-			// TODO Send commit message to the server for this respective bar
-			// and user
-		} else if (v == bFirehaus) {
-			// TODO Send commit message to the server for this respective bar
-			// and user
-		} else if (v == bJoes) {
-			// TODO Send commit message to the server for this respective bar
-			// and user
-		} else if (v == bJoes) {
-			// TODO Send commit message to the server for this respective bar
-			// and user
-		} else if (v == bKams) {
-			// TODO Send commit message to the server for this respective bar
-			// and user
-		} else if (v == bLegends) {
-			// TODO Send commit message to the server for this respective bar
-			// and user
-		} else if (v == bMurphys) {
-			// TODO Send commit message to the server for this respective bar
-			// and user
-		} else if (v == bRedLion) {
-			// TODO Send commit message to the server for this respective bar
-			// and user
-		} else if (v == bWhiteHo) {
-			// TODO Send commit message to the server for this respective bar
-			// and user
-		}
-	}
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                /*
+                                 * Spawn a GetAnimalSoundTask thread. This thread will get the
+                                 * data from the server in the background, without blocking the
+                                 * main UI thread.
+                                 */
+                        	String test = (String) ((TextView)view).getText();
+                                (new BarCommitTask()).execute((Object)((TextView)view).getText());
+                        	Log.i( "OnItemClick", "Name: " + test );
+                        }
 
+                });
+
+                /*
+                 * Spawn a GetListTask thread. This thread will get the data from the
+                 * server in the background, so as not to block our main (UI) thread.
+                 */
+                (new GetListTask()).execute((Object)null);
+        }
+
+        /**
+         * Used to implement an asynchronous retrieval of the list from the web.
+         * This uses the AsyncTask class as a starting point. For more info, see
+         * http://android-developers.blogspot.com/2009/05/painless-threading.html.
+         */
+        @SuppressWarnings("unchecked")
+        private class GetListTask extends AsyncTask {
+
+                /**
+                 * Let's make the http request and return the result as a String.
+                 */
+                protected String doInBackground(Object... args) {                       
+                        return ServerInterface.getBarsList();
+                }
+
+                /**
+                 * Parse the String result, and create a new array adapter for the list
+                 * view.
+                 */
+                protected void onPostExecute(Object objResult) {
+                        // check to make sure we're dealing with a string
+                        if(objResult != null && objResult instanceof String) {                          
+                                String result = (String) objResult;
+                                // this is used to hold the string array, after tokenizing
+                                String[] responseList;
+
+                                // we'll use a string tokenizer, with "," (comma) as the delimiter
+                                StringTokenizer tk = new StringTokenizer(result, ",");
+
+                                // now we know how long the string array is
+                                responseList = new String[tk.countTokens()];
+
+                                // let's build the string array
+                                int i = 0;
+                                while(tk.hasMoreTokens()) {
+                                        responseList[i++] = tk.nextToken();
+                                }
+
+                                // now we'll supply the data structure needed by this ListActivity
+                                ArrayAdapter<String> newAdapter = new ArrayAdapter<String>(mainActivity, R.layout.activity_android_list_client, responseList);
+                                mainActivity.setListAdapter(newAdapter);
+                        }
+                }
+
+        }
+
+        
+        /**
+         * Used to spawn a thread to retrieve the animal sound.
+         */
+        @SuppressWarnings("unchecked")
+        private class BarCommitTask extends AsyncTask {
+
+                /**
+                 * Let's make the http request and return the result as a String.
+                 */
+                protected String doInBackground(Object... args) {
+                        if(args != null && args[0] instanceof String) {
+                                String bar = (String) args[0];
+                                Log.i( "BarCommitTaskTask", "Name: " + bar );
+                                return ServerInterface.barCommit(bar);
+                        } else {
+                                return null;
+                        }
+                }
+
+                /**
+                 * Display the result as a Toast.
+                 */
+                protected void onPostExecute(Object objResult) {
+                        // check to make sure we're dealing with a string
+                        if(objResult != null && objResult instanceof String) {                          
+                                String result = (String) objResult;
+                                Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                        }
+                }
+
+        }
 }

@@ -1,5 +1,8 @@
 package com.example.champbars;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -8,7 +11,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
  */
 
 
-public class Bar {
+public class Bar{
 	private String name;
 	private String address; // Address in the form
 							// "100 Green Street, Champaign, IL, 61820"
@@ -18,8 +21,8 @@ public class Bar {
 	public MarkerOptions markerOptions;
 	//TODO: Add either a new class of a string array for 'Bar Specials'
 	
-	public Bar(String name, String address, int numMen, int numWomen, LatLng geoLocation,
-			MarkerOptions mark) {
+	public Bar(String name, String address, int numMen, int numWomen, LatLng geoLocation, MarkerOptions mark) 
+	{
 		this.name = name;
 		this.address = address;
 		this.numMen = numMen;
@@ -58,6 +61,14 @@ public class Bar {
 
 	public void setNumWomen(int numWomen) {
 		this.numWomen = numWomen;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

@@ -1,35 +1,38 @@
 package com.example.champbars;
 
 import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-
 import android.content.Intent;
-import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import com.example.champbars.*;
 
-public class MapActivity extends FragmentActivity {
+public class MapActivity extends FragmentActivity implements OnInfoWindowClickListener{
 
 	private GoogleMap mMap;
-	public static Bar bKams, bWhiteHo, bLegends, bMurphys, bClys, bRedLion,
-			bFirehaus, bJoes;
-
+	public static Bar 	bKams, 
+						bWhiteHo, 
+						bLegends, 
+						bMurphys, 
+						bClys, 
+						bRedLion, 
+						bFirehaus, 
+						bJoes;
+	
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState) 
+	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_map);
+		
 		setUpMapIfNeeded();
 
-		GooglePlayServicesUtil
-				.isGooglePlayServicesAvailable(getApplicationContext());
+		GooglePlayServicesUtil.isGooglePlayServicesAvailable(getApplicationContext());
 	}
 
 	@Override
@@ -43,8 +46,8 @@ public class MapActivity extends FragmentActivity {
 		// map.
 		if (mMap == null) {
 			// Try to obtain the map from the SupportMapFragment.
-			mMap = ((SupportMapFragment) getSupportFragmentManager()
-					.findFragmentById(R.id.map)).getMap();
+			mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
+			
 			// Check if we were successful in obtaining the map.
 			if (mMap != null) {
 				setUpMap();
@@ -57,7 +60,11 @@ public class MapActivity extends FragmentActivity {
 	 * camera. In this case, we just add a marker near Africa. This should only
 	 * be called once and when we are sure that {@link #mMap} is not null.
 	 */
-	private void setUpMap() {
+	private void setUpMap() 
+	{
+		// set up listener for when ballon of bars is clicked to start new activity
+		mMap.setOnInfoWindowClickListener(this);
+		
 		LatLng KAMS = new LatLng(40.108103, -88.229688);
 		LatLng WHITEHO = new LatLng(40.109335, -88.23084);
 		LatLng LEGENDS = new LatLng(40.11062, -88.231148);
@@ -119,12 +126,13 @@ public class MapActivity extends FragmentActivity {
 								.fromResource(R.drawable.firehaus)));
 		bJoes = new Bar("Joe's", "706 South 5th Street, Champaign, IL 61820",
 				0, 0, JOES, new MarkerOptions()
-						.position(FIREHAUS)
+						.position(JOES)
 						.title("Joe's")
 						.snippet("")
 						.icon(BitmapDescriptorFactory
 								.fromResource(R.drawable.joes)));
 
+		// add the markers to the map
 		Marker mKams = mMap.addMarker(bKams.markerOptions);
 		Marker mWhiteHo = mMap.addMarker(bWhiteHo.markerOptions);
 		Marker mLegends = mMap.addMarker(bLegends.markerOptions);
@@ -135,6 +143,18 @@ public class MapActivity extends FragmentActivity {
 		Marker mJoes = mMap.addMarker(bJoes.markerOptions);
 	}
 
-	// TODO add markerOnClickListener for bar clicks
+	/**
+	 * Function to handle Bar Marker Clicks - spawns a new activity
+	 * @param marker the bar icon that was clicked
+	 */
+	@Override
+	public void onInfoWindowClick(Marker marker) 
+	{
+		Intent intent = new Intent(this, BarClickedActivity.class);
+		String barName = marker.getTitle();
 
+		intent.putExtra("bar_name", barName);
+		
+        startActivity(intent);
+	}
 }

@@ -43,17 +43,14 @@ public class CheckInActivity extends ListActivity {
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.activity_android_list_client, initialList);
                 this.setListAdapter(adapter);
 
-                /*
-                 * Let's set up an item click listener to retrieve the animal sound and
-                 * display it to the user as a Toast.
-                 */
+               
                 ListView lv = this.getListView();
                 lv.setOnItemClickListener(new OnItemClickListener() {
 
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                                 /*
-                                 * Spawn a GetAnimalSoundTask thread. This thread will get the
+                                 * Spawn a thread. This thread will get the
                                  * data from the server in the background, without blocking the
                                  * main UI thread.
                                  */

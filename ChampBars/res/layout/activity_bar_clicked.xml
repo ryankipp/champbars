@@ -1,0 +1,76 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:facebook="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center_horizontal"
+    android:background="#FFF"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:weightSum="13">
+
+    <TextView android:editable = "true"
+        android:id="@+id/barName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:padding="10dp"
+        android:textSize="30sp"
+        android:gravity="center_horizontal"
+    	android:orientation="vertical"
+    	android:textStyle="bold|italic" >
+    </TextView>
+    <TextView android:editable = "true"
+        android:id="@+id/barAddress"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:padding="10dp"
+        android:textSize="16sp"
+        android:gravity="center_horizontal"
+    	android:orientation="vertical" >
+    </TextView>
+    <TextView
+        android:id="@+id/queryCheckedIn"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:padding="10dp"
+        android:textSize="16sp" >
+    </TextView>
+	<TextView
+        android:id="@+id/queryCommitted"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:padding="10dp"
+        android:textSize="16sp" >
+    </TextView>
+    <Button
+        android:id="@+id/buttonFriendsCheckedIn"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:text="@string/buttonCheckedIn" />
+
+    <Button
+        android:id="@+id/buttonFriendsCommitted"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:text="@string/buttonCommitted" />
+
+    <Button
+        android:id="@+id/buttonCheckIn"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:text="@string/button_check_in" />
+
+    <Button
+        android:id="@+id/buttonCommit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:text="@string/button_commit_to_later" />
+</LinearLayout>
